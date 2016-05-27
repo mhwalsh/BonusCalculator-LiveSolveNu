@@ -56,11 +56,14 @@ function calcBonus(individual){
     bonusPercentage = 0.13;
   }
 
-  console.log('bonusPercentage - ', bonusPercentage);
-// [name, percent, adjusted comp, bonus]
-//return
+  // [name, percent, adjusted comp, bonus]
+  var bonus = Math.round(empSalary * bonusPercentage);
+  var adjustedComp = empSalary + bonus;
+
+  var newEmpArr = [empName, bonusPercentage, adjustedComp, bonus];
+  return newEmpArr;
 }
 
 for (var i = 0; i < employees.length; i++) {
-  calcBonus(employees[i]);
+  console.log(calcBonus(employees[i]));
 }
