@@ -12,7 +12,7 @@ function calcBonus(individual){
   //marshal vars
   var empName = individual[0];
   var empNumber = individual[1];
-  var empSalary = individual[2];
+  var empSalary = Number(individual[2]);
   var empRating = individual[3];
 
   console.log('Processing ', empName);
@@ -39,6 +39,21 @@ function calcBonus(individual){
     default:
       console.log('Not a possible rating.');
       bonusPercentage = 0.0;
+  }
+
+  //employee number <= 4
+  if (empNumber.length <= 4) {
+    bonusPercentage += 0.05;
+  }
+
+  //salary greater than 65000
+  if(empSalary > 65000){
+    bonusPercentage -= 0.01;
+  }
+
+  //no bonus above 13%
+  if(bonusPercentage > 0.13){
+    bonusPercentage = 0.13;
   }
 
   console.log('bonusPercentage - ', bonusPercentage);
