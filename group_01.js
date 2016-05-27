@@ -5,4 +5,10 @@ var scout = ["Scout", "6243", "74750", 5];
 
 var employees = [atticus, jem, boo, scout];
 
-console.log('test');
+function calcBonus(individual){
+  console.log(individual[0]);
+}
+
+for (var i = 0; i < employees.length; i++) {
+  calcBonus(employees[i]);
+}
